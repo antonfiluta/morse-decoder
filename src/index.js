@@ -1,4 +1,4 @@
-const MORSE_TABLE = {
+const sym = {
     '.-':     'a',
     '-...':   'b',
     '-.-.':   'c',
@@ -38,7 +38,24 @@ const MORSE_TABLE = {
 };
 
 function decode(expr) {
-    // write your solution here
+    let morse = '';
+    let result = '';
+
+    let numbers = expr.split('');
+    while (numbers.length >= 1) {
+        let simbol = numbers.splice(0, 10);
+        while (simbol.length >= 2) {
+            let part = simbol.splice(0, 2).join('');
+            if (part == '00') morse += '';
+            if (part == '10') morse += '.';
+            if (part == '11') morse += '-';
+        }
+        morse += ", "
+    }
+    let resMorse = morse.split(', ')
+
+    for (let item of resMorse) result += (sym[item] ? sym[item] : " ");
+    return result.slice(0, -1);
 }
 
 module.exports = {
