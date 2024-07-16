@@ -50,9 +50,9 @@ function decode(expr) {
             if (part == '10') morse += '.';
             if (part == '11') morse += '-';
         }
-        morse += ", "
+        morse += " "
     }
-    let resMorse = morse.split(', ')
+    let resMorse = morse.split(' ')
 
     for (let item of resMorse) result += (sym[item] ? sym[item] : " ");
     return result.slice(0, -1);
